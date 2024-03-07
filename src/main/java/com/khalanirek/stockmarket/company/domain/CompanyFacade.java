@@ -19,7 +19,7 @@ class CompanyFacade {
     }
 
     public CompanyDto.Company findCompanyById(CompanyId id) {
-        return companyRepository.findById(id)
+        return companyRepository.findById(id.getId())
                 .orElseThrow()
                 .toDto();
     }
