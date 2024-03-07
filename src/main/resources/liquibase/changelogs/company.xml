@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="company" author="PiotrTurlinski">
+
+        <createTable tableName="company">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="symbol" type="varchar(3)"/>
+            <column name="share_capital" type="number"/>
+        </createTable>
+
+        <createTable tableName="share">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="owner_id" type="uuid"/>
+            <column name="owner_type" type="varchar(32)"/>
+            <column name="quantity" type="number"/>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
