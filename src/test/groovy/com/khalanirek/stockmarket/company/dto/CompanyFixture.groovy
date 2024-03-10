@@ -27,6 +27,7 @@ class CompanyFixture extends BaseFixture {
 
         static CompanyDto.Company companyA() {
             return CompanyDto.Company.builder()
+                    .id(COMPANY_A_ID)
                     .name(COMPANY_A_NAME)
                     .symbol(COMPANY_A_SYMBOL)
                     .shareCapital(COMPANY_A_SHARE_CAPITAL)
@@ -59,6 +60,7 @@ class CompanyFixture extends BaseFixture {
 
         static CompanyApi.CompanyDetails companyADetails() {
             return CompanyApi.CompanyDetails.builder()
+                    .id(COMPANY_A_ID)
                     .name(COMPANY_A_NAME)
                     .symbol(COMPANY_A_SYMBOL)
                     .shareCapital(COMPANY_A_SHARE_CAPITAL)

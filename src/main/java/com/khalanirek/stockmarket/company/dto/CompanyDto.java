@@ -36,6 +36,9 @@ public final class CompanyDto {
     public static class Company {
 
         @NonNull
+        CompanyId id;
+
+        @NonNull
         String name;
 
         @NonNull

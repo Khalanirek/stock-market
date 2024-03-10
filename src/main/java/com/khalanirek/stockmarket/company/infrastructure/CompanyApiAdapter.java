@@ -27,6 +27,7 @@ public class CompanyApiAdapter {
 
         public static CompanyApi.CompanyDetails toCompanyDetails(CompanyDto.Company dto) {
             return CompanyApi.CompanyDetails.builder()
+                    .id(dto.getId().getId())
                     .name(dto.getName())
                     .symbol(dto.getSymbol())
                     .shareCapital(dto.getShareCapital())

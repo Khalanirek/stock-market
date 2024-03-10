@@ -36,6 +36,9 @@ public final class CompanyApi {
     public static class CompanyDetails {
 
         @NonNull
+        UUID id;
+
+        @NonNull
         String name;
 
         @NonNull
