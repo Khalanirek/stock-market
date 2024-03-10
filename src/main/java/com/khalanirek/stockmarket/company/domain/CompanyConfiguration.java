@@ -12,8 +12,13 @@ class CompanyConfiguration {
 
 
     @Bean
-    CompanyFacade companyFacade() {
-        return new CompanyFacade(companyRepository);
+    CompanyCommandFacade companyCommandFacade() {
+        return new CompanyCommandFacade(companyRepository);
+    }
+
+    @Bean
+    CompanyQueryFacade companyQueryFacade() {
+        return new CompanyQueryFacade(companyRepository);
     }
 
 }

@@ -2,7 +2,6 @@ package com.khalanirek.stockmarket.company.domain
 
 import com.khalanirek.stockmarket.common.UUIDContext
 import com.khalanirek.stockmarket.company.dto.CompanyDto
-import com.khalanirek.stockmarket.company.dto.CompanyId
 
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.COMPANY_A_ID
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.COMPANY_A_NAME
@@ -25,9 +24,9 @@ class CompanyFacadeSpec extends CompanyBaseSpec {
                     .quantity(COMPANY_A_SHARES_QUANTITY)
                     .build())
         when:
-            def id = companyFacade.registerCompany(registerCompanyA())
+            def id = companyCommandFacade.registerCompany(registerCompanyA())
         then:
-            def company = companyFacade.findCompanyById(CompanyId.of(id))
+            def company = companyQueryFacade.findCompanyById(id)
             verifyAll(company) {
                 name == COMPANY_A_NAME
                 symbol == COMPANY_A_SYMBOL

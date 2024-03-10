@@ -6,6 +6,7 @@ class CompanyBaseSpec extends Specification {
 
     CompanyRepository companyRepository = new InMemoryCompanyRepository()
     CompanyConfiguration companyConfiguration = new CompanyConfiguration(companyRepository)
-    CompanyFacade companyFacade = companyConfiguration.companyFacade()
+    CompanyCommandFacade companyCommandFacade = companyConfiguration.companyCommandFacade()
+    CompanyQueryFacade companyQueryFacade = companyConfiguration.companyQueryFacade()
 
 }
