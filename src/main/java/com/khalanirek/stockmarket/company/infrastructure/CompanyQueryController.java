@@ -19,7 +19,7 @@ class CompanyQueryController {
 
     private final CompanyQueryFacade companyQueryFacade;
 
-    @GetMapping("{companyId}")
+    @GetMapping("/{companyId}")
     public CompanyApi.CompanyDetails getCompanyDetails(@PathVariable UUID companyId) {
         CompanyDto.Company company = companyQueryFacade.findCompanyById(CompanyId.of(companyId));
         return CompanyApiAdapter.DtoToApi.toCompanyDetails(company);

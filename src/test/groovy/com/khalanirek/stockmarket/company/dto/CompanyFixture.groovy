@@ -12,7 +12,7 @@ class CompanyFixture extends BaseFixture {
     static final String COMPANY_A_NAME = "Company A"
     static final String COMPANY_A_SYMBOL = "CPA"
     static final BigDecimal COMPANY_A_SHARE_CAPITAL = 1_000_000
-    static final int COMPANY_A_SHARES_QUANTITY = 1_000
+    static final int COMPANY_A_SHARES_QUANTITY = 10_000
 
     static class Dto {
 
@@ -42,6 +42,7 @@ class CompanyFixture extends BaseFixture {
                             .ownerId(COMPANY_A_ID_UUID)
                             .ownerType(SELF)
                             .build())
+                    .quantity(COMPANY_A_SHARES_QUANTITY)
                     .build()
         }
 
@@ -60,7 +61,7 @@ class CompanyFixture extends BaseFixture {
 
         static CompanyApi.CompanyDetails companyADetails() {
             return CompanyApi.CompanyDetails.builder()
-                    .id(COMPANY_A_ID)
+                    .id(COMPANY_A_ID_UUID)
                     .name(COMPANY_A_NAME)
                     .symbol(COMPANY_A_SYMBOL)
                     .shareCapital(COMPANY_A_SHARE_CAPITAL)
@@ -75,6 +76,7 @@ class CompanyFixture extends BaseFixture {
                             .ownerId(COMPANY_A_ID_UUID)
                             .ownerType(SELF)
                             .build())
+                    .quantity(COMPANY_A_SHARES_QUANTITY)
                     .build()
         }
 

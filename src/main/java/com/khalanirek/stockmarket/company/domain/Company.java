@@ -43,6 +43,7 @@ class Company extends BaseEntity<CompanyId> {
 
     CompanyDto.Company toDto() {
         return CompanyDto.Company.builder()
+                .id(id())
                 .name(name)
                 .symbol(symbol)
                 .shareCapital(shareCapital)
