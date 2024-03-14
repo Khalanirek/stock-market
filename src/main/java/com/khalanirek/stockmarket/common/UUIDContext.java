@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+import static java.util.Collections.emptyList;
+
 @UtilityClass
 public class UUIDContext {
 
@@ -32,6 +34,11 @@ public class UUIDContext {
             return uuid;
         }
         return Objects.requireNonNullElseGet(fixtureUUID, UUID::randomUUID);
+    }
+
+    public static void clear() {
+        fixtureUUID = null;
+        fixtureUUIDList = emptyList();
     }
 
 }

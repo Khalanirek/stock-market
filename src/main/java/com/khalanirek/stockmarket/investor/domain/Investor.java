@@ -1,5 +1,6 @@
 package com.khalanirek.stockmarket.investor.domain;
 
+import com.khalanirek.stockmarket.account.dto.AccountId;
 import com.khalanirek.stockmarket.common.BaseEntity;
 import com.khalanirek.stockmarket.investor.dto.InvestorDto;
 import com.khalanirek.stockmarket.investor.dto.InvestorId;
@@ -27,13 +28,17 @@ class Investor extends BaseEntity<InvestorId> {
 
     private UUID accountId;
 
+    void assignAccount(AccountId accountId) {
+        this.accountId = accountId.getId();
+    }
+
     InvestorDto.Investor toDto() {
         return InvestorDto.Investor.builder()
                 .id(id())
                 .name(name)
                 .surname(surname)
                 .investmentPortfolioId(investmentPortfolioId)
-                .accountId(accountId)
+                .accountId(AccountId.of(accountId))
                 .build();
     }
 

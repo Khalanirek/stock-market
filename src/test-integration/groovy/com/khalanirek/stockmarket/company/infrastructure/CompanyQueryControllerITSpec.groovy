@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class CompanyQueryControllerITSpec extends Specification {
 
     @Autowired
-    private MockMvc mockMvc;
+    private MockMvc mockMvc
 
     @SpringBean
     private CompanyQueryFacade companyQueryFacade = Mock(CompanyQueryFacade) {
@@ -40,7 +40,6 @@ class CompanyQueryControllerITSpec extends Specification {
                     .andExpect(status().isOk())
                     .andReturn().response
             fromJson(response.getContentAsString(), CompanyApi.CompanyDetails.class) == companyADetails()
-
     }
 
 }

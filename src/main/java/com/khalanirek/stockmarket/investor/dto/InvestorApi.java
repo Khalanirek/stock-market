@@ -1,5 +1,6 @@
 package com.khalanirek.stockmarket.investor.dto;
 
+import com.khalanirek.stockmarket.account.dto.AccountId;
 import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.UtilityClass;
@@ -31,7 +32,7 @@ public final class InvestorApi {
 
         UUID investmentPortfolioId;
 
-        UUID accountId;
+        AccountId accountId;
 
     }
 

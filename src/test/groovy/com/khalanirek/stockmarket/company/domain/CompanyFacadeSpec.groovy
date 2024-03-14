@@ -6,7 +6,7 @@ import static com.khalanirek.stockmarket.company.dto.CompanyFixture.COMPANY_A_ID
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.Dto.companyA
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.Dto.registerCompanyA
 
-class CompanyFacadeSpec extends CompanyInvestorBaseSpec {
+class CompanyFacadeSpec extends CompanyBaseSpec {
 
     def "should register company"() {
         given:

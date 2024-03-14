@@ -1,5 +1,6 @@
 package com.khalanirek.stockmarket.investor.dto
 
+import com.khalanirek.stockmarket.account.dto.AccountId
 import com.khalanirek.stockmarket.investor.dto.InvestorApi.InvestorDetails
 import com.khalanirek.stockmarket.investor.dto.InvestorDto.Investor
 import com.khalanirek.stockmarket.investor.dto.InvestorDto.RegisterInvestor
@@ -11,6 +12,7 @@ class InvestorFixture {
     static final InvestorId INVESTOR_A_ID = InvestorId.of(INVESTOR_A_ID_UUID)
     static final UUID INVESTOR_A_INVESTMENT_PORTFOLIO_ID_UUID = UUID.randomUUID()
     static final UUID INVESTOR_A_ACCOUNT_ID_UUID = UUID.randomUUID()
+    static final AccountId INVESTOR_A_ACCOUNT_ID = AccountId.of(INVESTOR_A_ACCOUNT_ID_UUID)
     static final String INVESTOR_A_NAME = "Investor A name"
     static final String INVESTOR_A_SURNAME = "Investor A surname"
 
@@ -29,7 +31,7 @@ class InvestorFixture {
                     .name(INVESTOR_A_NAME)
                     .surname(INVESTOR_A_SURNAME)
                     .investmentPortfolioId(INVESTOR_A_INVESTMENT_PORTFOLIO_ID_UUID)
-                    .accountId(INVESTOR_A_ACCOUNT_ID_UUID)
+                    .accountId(INVESTOR_A_ACCOUNT_ID)
                     .build()
         }
 
@@ -50,7 +52,7 @@ class InvestorFixture {
                     .name(INVESTOR_A_NAME)
                     .surname(INVESTOR_A_SURNAME)
                     .investmentPortfolioId(INVESTOR_A_INVESTMENT_PORTFOLIO_ID_UUID)
-                    .accountId(INVESTOR_A_ACCOUNT_ID_UUID)
+                    .accountId(INVESTOR_A_ACCOUNT_ID)
                     .build()
         }
 
