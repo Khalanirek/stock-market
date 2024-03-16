@@ -31,13 +31,13 @@ class AccountQueryControllerITSpec extends Specification {
 
     def "should get account details"() {
         when:
-        def result = mockMvc.perform(get(ACCOUNT_API_BASE_URL + "/${ACCOUNT_A_ID_UUID}")
-                .accept(APPLICATION_JSON))
+            def result = mockMvc.perform(get(ACCOUNT_API_BASE_URL + "/${ACCOUNT_A_ID_UUID}")
+                    .accept(APPLICATION_JSON))
         then:
-        def response = result
-                .andExpect(status().isOk())
-                .andReturn().response
-        fromJson(response.getContentAsString(), AccountApi.AccountDetails.class) == accountADetails()
+            def response = result
+                    .andExpect(status().isOk())
+                    .andReturn().response
+            fromJson(response.getContentAsString(), AccountApi.AccountDetails.class) == accountADetails()
     }
 
 }

@@ -1,32 +1,33 @@
-package com.khalanirek.stockmarket.company.domain;
+package com.khalanirek.stockmarket.investmentportfolio.domain;
 
 import com.khalanirek.stockmarket.common.ChildEntity;
-import com.khalanirek.stockmarket.company.dto.CompanyDto;
+import com.khalanirek.stockmarket.company.dto.CompanyId;
+import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.UUID;
+
 @Getter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @Entity
-@Table(name = "share")
+@Table(name = "investment_portfolio_share")
 class Share extends ChildEntity {
 
-    @NotNull
-    private Owner owner;
+    private UUID companyId;
 
     private long quantity;
 
-    CompanyDto.Company.Share toDto() {
-        return CompanyDto.Company.Share.builder()
-                .owner(owner.toDto())
+    InvestmentPortfolioDto.InvestmentPortfolio.Share toDto() {
+        return InvestmentPortfolioDto.InvestmentPortfolio.Share.builder()
+                .companyId(CompanyId.of(companyId))
                 .quantity(quantity)
                 .build();
     }

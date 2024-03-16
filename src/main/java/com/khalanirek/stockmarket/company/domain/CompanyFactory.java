@@ -19,7 +19,7 @@ class CompanyFactory {
                 .name(dto.getName())
                 .symbol(dto.getSymbol())
                 .shareCapital(dto.getShareCapital())
-                .shares(Set.of(Share.builder()
+                .shares(Set.of(CompanyShare.builder()
                         .owner(Owner.builder()
                                 .ownerId(companyId)
                                 .ownerType(SELF)

@@ -1,0 +1,6 @@
+package com.khalanirek.stockmarket.investmentportfolio.domain
+
+import com.khalanirek.stockmarket.common.InMemoryBaseRepository
+
+class InMemoryInvestmentPortfolioRepository extends InMemoryBaseRepository<InvestmentPortfolio> implements InvestmentPortfolioRepository {
+}

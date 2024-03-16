@@ -5,6 +5,7 @@
 
     <include file="/changelogs/account.xml" relativeToChangelogFile="true"/>
     <include file="/changelogs/company.xml" relativeToChangelogFile="true"/>
+    <include file="/changelogs/investment_portfolio.xml" relativeToChangelogFile="true"/>
     <include file="/changelogs/investor.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

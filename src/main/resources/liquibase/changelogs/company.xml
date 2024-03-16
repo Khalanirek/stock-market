@@ -14,7 +14,7 @@
             <column name="share_capital" type="number"/>
         </createTable>
 
-        <createTable tableName="share">
+        <createTable tableName="company_share">
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
             </column>

@@ -4,17 +4,14 @@ import com.khalanirek.stockmarket.common.UUIDContext;
 import com.khalanirek.stockmarket.investor.dto.InvestorDto;
 import lombok.experimental.UtilityClass;
 
-import java.util.UUID;
-
 @UtilityClass
 class InvestorFactory {
 
-    Investor createInvestor(InvestorDto.RegisterInvestor dto, UUID investmentPortfolioId) {
+    Investor createInvestor(InvestorDto.RegisterInvestor dto) {
         return Investor.builder()
                 .id(UUIDContext.randomUUID())
                 .name(dto.getName())
                 .surname(dto.getSurname())
-                .investmentPortfolioId(investmentPortfolioId)
                 .build();
     }
 

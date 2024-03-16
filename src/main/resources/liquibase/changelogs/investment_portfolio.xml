@@ -3,16 +3,23 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
 
-    <changeSet id="investor-init" author="PiotrTurlinski">
-        <createTable tableName="investor">
+    <changeSet id="company" author="PiotrTurlinski">
+
+        <createTable tableName="investment_portfolio">
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(32)"/>
-            <column name="surname" type="varchar(64)"/>
-            <column name="account_id" type="uuid"/>
-            <column name="investment_portfolio_id" type="uuid"/>
+            <column name="owner_id" type="uuid"/>
         </createTable>
+
+        <createTable tableName="investment_portfolio_share">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="investment_portfolio_id" type="uuid"/>
+            <column name="quantity" type="number"/>
+        </createTable>
+
     </changeSet>
 
 </databaseChangeLog>

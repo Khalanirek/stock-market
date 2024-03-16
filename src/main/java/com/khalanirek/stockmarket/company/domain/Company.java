@@ -32,12 +32,12 @@ class Company extends BaseEntity<CompanyId> {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "company_id")
-    private Set<Share> shares;
+    private Set<CompanyShare> shares;
 
     @Transient
     long getSharesQuantity() {
         return shares.stream()
-                .mapToLong(Share::getQuantity)
+                .mapToLong(CompanyShare::getQuantity)
                 .sum();
     }
 
@@ -49,7 +49,7 @@ class Company extends BaseEntity<CompanyId> {
                 .shareCapital(shareCapital)
                 .sharesQuantity(getSharesQuantity())
                 .shares(shares.stream()
-                        .map(Share::toDto)
+                        .map(CompanyShare::toDto)
                         .collect(Collectors.toSet()))
                 .build();
     }

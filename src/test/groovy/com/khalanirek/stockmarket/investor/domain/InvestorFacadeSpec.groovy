@@ -14,9 +14,9 @@ class InvestorFacadeSpec extends InvestorBaseSpec {
     def "should register investor"() {
         given:
             UUIDContext.setFixtureUUIDList(List.of(
-                    INVESTOR_A_INVESTMENT_PORTFOLIO_ID_UUID,
                     INVESTOR_A_ID_UUID,
-                    INVESTOR_A_ACCOUNT_ID_UUID
+                    INVESTOR_A_ACCOUNT_ID_UUID,
+                    INVESTOR_A_INVESTMENT_PORTFOLIO_ID_UUID,
                     ))
         when:
             def id = investorCommandFacade.registerInvestor(registerInvestorA())
