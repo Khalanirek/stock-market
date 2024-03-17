@@ -11,8 +11,8 @@ class AccountApiAdapter {
 
         static AccountApi.AccountDetails toAccountDetails(AccountDto.Account dto) {
             return AccountApi.AccountDetails.builder()
-                    .id(dto.getId())
-                    .ownerId(dto.getOwnerId())
+                    .id(dto.getId().getId())
+                    .ownerId(dto.getOwnerId().getId())
                     .balance(dto.getBalance())
                     .build();
         }

@@ -1,11 +1,11 @@
 package com.khalanirek.stockmarket.account.dto;
 
-import com.khalanirek.stockmarket.investor.dto.InvestorId;
 import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.UtilityClass;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @UtilityClass
 public class AccountApi {
@@ -14,9 +14,9 @@ public class AccountApi {
     @Builder
     public static class AccountDetails {
 
-        AccountId id;
+        UUID id;
 
-        InvestorId ownerId;
+        UUID ownerId;
 
         BigDecimal balance;
 

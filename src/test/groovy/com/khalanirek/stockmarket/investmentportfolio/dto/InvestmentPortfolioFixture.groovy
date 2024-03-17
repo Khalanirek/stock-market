@@ -26,8 +26,8 @@ class InvestmentPortfolioFixture {
 
         static InvestmentPortfolioApi.InvestmentPortfolioDetails newInvestmentPortfolioADetails() {
             return InvestmentPortfolioApi.InvestmentPortfolioDetails.builder()
-                    .id(INVESTMENT_PORTFOLIO_A_ID)
-                    .ownerId(INVESTMENT_PORTFOLIO_A_OWNER_ID)
+                    .id(INVESTMENT_PORTFOLIO_A_ID_UUID)
+                    .ownerId(INVESTMENT_PORTFOLIO_A_OWNER_ID_UUID)
                     .shares(List.of())
                     .build()
         }

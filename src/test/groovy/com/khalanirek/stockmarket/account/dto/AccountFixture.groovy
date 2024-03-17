@@ -27,8 +27,8 @@ class AccountFixture {
 
         static AccountApi.AccountDetails accountADetails() {
             return AccountApi.AccountDetails.builder()
-                    .id(ACCOUNT_A_ID)
-                    .ownerId(ACCOUNT_A_OWNER_ID)
+                    .id(ACCOUNT_A_ID_UUID)
+                    .ownerId(ACCOUNT_A_OWNER_ID_UUID)
                     .balance(ACCOUNT_A_BALANCE)
                     .build()
         }

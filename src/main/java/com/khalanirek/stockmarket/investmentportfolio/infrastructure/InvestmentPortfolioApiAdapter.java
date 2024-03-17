@@ -11,8 +11,8 @@ class InvestmentPortfolioApiAdapter {
 
         static InvestmentPortfolioApi.InvestmentPortfolioDetails toInvestmentPortfolioDetails(InvestmentPortfolioDto.InvestmentPortfolio dto) {
             return InvestmentPortfolioApi.InvestmentPortfolioDetails.builder()
-                    .id(dto.getId())
-                    .ownerId(dto.getOwnerId())
+                    .id(dto.getId().getId())
+                    .ownerId(dto.getOwnerId().getId())
                     .shares(dto.getShares().stream()
                             .map(DtoToApi::toShare)
                             .toList())
@@ -21,7 +21,7 @@ class InvestmentPortfolioApiAdapter {
 
         static InvestmentPortfolioApi.InvestmentPortfolioDetails.Share toShare(InvestmentPortfolioDto.InvestmentPortfolio.Share dto) {
             return InvestmentPortfolioApi.InvestmentPortfolioDetails.Share.builder()
-                    .companyId(dto.getCompanyId())
+                    .companyId(dto.getCompanyId().getId())
                     .quantity(dto.getQuantity())
                     .build();
         }

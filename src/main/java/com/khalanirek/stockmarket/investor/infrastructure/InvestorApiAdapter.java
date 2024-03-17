@@ -22,11 +22,11 @@ public class InvestorApiAdapter {
 
         public static InvestorApi.InvestorDetails investorDetails(InvestorDto.Investor dto) {
             return InvestorApi.InvestorDetails.builder()
-                    .id(dto.getId())
+                    .id(dto.getId().getId())
                     .name(dto.getName())
                     .surname(dto.getSurname())
-                    .investmentPortfolioId(dto.getInvestmentPortfolioId())
-                    .accountId(dto.getAccountId())
+                    .accountId(dto.getAccountId().getId())
+                    .investmentPortfolioId(dto.getInvestmentPortfolioId().getId())
                     .build();
         }
 

@@ -1,12 +1,11 @@
 package com.khalanirek.stockmarket.investmentportfolio.dto;
 
-import com.khalanirek.stockmarket.company.dto.CompanyId;
-import com.khalanirek.stockmarket.investor.dto.InvestorId;
 import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
+import java.util.UUID;
 
 @UtilityClass
 public class InvestmentPortfolioApi {
@@ -15,9 +14,9 @@ public class InvestmentPortfolioApi {
     @Builder
     public static class InvestmentPortfolioDetails {
 
-        InvestmentPortfolioId id;
+        UUID id;
 
-        InvestorId ownerId;
+        UUID ownerId;
 
         List<Share> shares;
 
@@ -25,7 +24,7 @@ public class InvestmentPortfolioApi {
         @Builder
         public static class Share {
 
-            CompanyId companyId;
+            UUID companyId;
 
             long quantity;
 

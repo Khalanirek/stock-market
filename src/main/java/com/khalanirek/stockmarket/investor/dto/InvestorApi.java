@@ -1,10 +1,10 @@
 package com.khalanirek.stockmarket.investor.dto;
 
-import com.khalanirek.stockmarket.account.dto.AccountId;
-import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioId;
 import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.UtilityClass;
+
+import java.util.UUID;
 
 @UtilityClass
 public final class InvestorApi {
@@ -23,11 +23,11 @@ public final class InvestorApi {
     @Builder
     public static class InvestorDetails {
 
-        InvestorId id;
+        UUID id;
 
-        AccountId accountId;
+        UUID accountId;
 
-        InvestmentPortfolioId investmentPortfolioId;
+        UUID investmentPortfolioId;
 
         String name;
 

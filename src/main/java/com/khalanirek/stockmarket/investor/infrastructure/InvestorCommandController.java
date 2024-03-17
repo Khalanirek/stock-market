@@ -5,6 +5,7 @@ import com.khalanirek.stockmarket.investor.dto.InvestorApi;
 import com.khalanirek.stockmarket.investor.dto.InvestorDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ class InvestorCommandController {
     private final InvestorCommandFacade investorCommandFacade;
 
     @PostMapping
-    public UUID registerInvestor(InvestorApi.RegisterInvestorRequest request) {
+    public UUID registerInvestor(@RequestBody InvestorApi.RegisterInvestorRequest request) {
         InvestorDto.RegisterInvestor registerInvestor = InvestorApiAdapter.ApiToDto.toRegisterInvestor(request);
         return investorCommandFacade.registerInvestor(registerInvestor).getId();
     }
