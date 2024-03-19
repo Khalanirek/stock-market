@@ -13,7 +13,7 @@ class AccountApiAdapter {
             return AccountApi.AccountDetails.builder()
                     .id(dto.getId().getId())
                     .ownerId(dto.getOwnerId().getId())
-                    .balance(dto.getBalance())
+                    .availableBalance(dto.getAvailableBalance())
                     .build();
         }
 

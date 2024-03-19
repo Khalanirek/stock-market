@@ -3,7 +3,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
 
-    <changeSet id="company" author="PiotrTurlinski">
+    <changeSet id="investment-portfolio-init" author="PiotrTurlinski">
 
         <createTable tableName="investment_portfolio">
             <column name="id" type="uuid">
@@ -18,6 +18,16 @@
             </column>
             <column name="investment_portfolio_id" type="uuid"/>
             <column name="quantity" type="number"/>
+        </createTable>
+
+        <createTable tableName="share_blockade">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="investment_portfolio_id" type="uuid"/>
+            <column name="company_id" type="uuid"/>
+            <column name="quantity" type="number"/>
+            <column name="expiration_time" type="timestamp with zone"/>
         </createTable>
 
     </changeSet>

@@ -18,7 +18,7 @@ public class AccountDto {
 
         InvestorId ownerId;
 
-        BigDecimal balance;
+        BigDecimal availableBalance;
 
     }
 

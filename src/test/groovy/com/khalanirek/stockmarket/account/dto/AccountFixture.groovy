@@ -17,7 +17,7 @@ class AccountFixture {
             return AccountDto.Account.builder()
                     .id(ACCOUNT_A_ID)
                     .ownerId(ACCOUNT_A_OWNER_ID)
-                    .balance(ACCOUNT_A_BALANCE)
+                    .availableBalance(ACCOUNT_A_BALANCE)
                     .build()
         }
 
@@ -29,7 +29,7 @@ class AccountFixture {
             return AccountApi.AccountDetails.builder()
                     .id(ACCOUNT_A_ID_UUID)
                     .ownerId(ACCOUNT_A_OWNER_ID_UUID)
-                    .balance(ACCOUNT_A_BALANCE)
+                    .availableBalance(ACCOUNT_A_BALANCE)
                     .build()
         }
 

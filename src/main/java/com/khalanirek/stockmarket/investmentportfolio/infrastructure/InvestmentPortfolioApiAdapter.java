@@ -19,7 +19,7 @@ class InvestmentPortfolioApiAdapter {
                     .build();
         }
 
-        static InvestmentPortfolioApi.InvestmentPortfolioDetails.Share toShare(InvestmentPortfolioDto.InvestmentPortfolio.Share dto) {
+        static InvestmentPortfolioApi.InvestmentPortfolioDetails.Share toShare(InvestmentPortfolioDto.Share dto) {
             return InvestmentPortfolioApi.InvestmentPortfolioDetails.Share.builder()
                     .companyId(dto.getCompanyId().getId())
                     .quantity(dto.getQuantity())

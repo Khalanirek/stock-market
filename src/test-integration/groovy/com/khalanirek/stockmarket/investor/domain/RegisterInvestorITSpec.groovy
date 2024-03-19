@@ -25,7 +25,7 @@ class RegisterInvestorITSpec extends ApplicationBaseWorkflow {
             verifyAll(accountDetails) {
                 id == investorDetails.accountId
                 ownerId == investorDetails.id
-                balance == 0
+                availableBalance == 0
             }
         and: "investment portfolio is created"
             def investmentPortfolioDetails = webClient.investmentPortfolio.getInvestmentPortfolioDetails(investorDetails.investmentPortfolioId)

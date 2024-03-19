@@ -3,7 +3,8 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
 
-    <changeSet id="investor-init" author="PiotrTurlinski">
+    <changeSet id="account-init" author="PiotrTurlinski">
+
         <createTable tableName="investor">
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
@@ -11,6 +12,16 @@
             <column name="owner_id" type="uuid"/>
             <column name="balance" type="number"/>
         </createTable>
+
+        <createTable tableName="funds_blockade">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="account_id" type="uuid"/>
+            <column name="amount" type="number"/>
+            <column name="expiration_time" type="timestamp with zone"/>
+        </createTable>
+
     </changeSet>
 
 </databaseChangeLog>

@@ -1,5 +1,6 @@
 package com.khalanirek.stockmarket.investmentportfolio.dto
 
+import com.khalanirek.stockmarket.company.dto.CompanyId
 import com.khalanirek.stockmarket.investor.dto.InvestorId
 
 class InvestmentPortfolioFixture {
@@ -9,6 +10,8 @@ class InvestmentPortfolioFixture {
     static final InvestmentPortfolioId INVESTMENT_PORTFOLIO_A_ID = InvestmentPortfolioId.of(INVESTMENT_PORTFOLIO_A_ID_UUID)
     static final UUID INVESTMENT_PORTFOLIO_A_OWNER_ID_UUID = UUID.randomUUID()
     static final InvestorId INVESTMENT_PORTFOLIO_A_OWNER_ID = InvestorId.of(INVESTMENT_PORTFOLIO_A_OWNER_ID_UUID)
+    static final UUID COMPANY_A_ID_UUID = UUID.randomUUID()
+    static final CompanyId COMPANY_A_ID = CompanyId.of(COMPANY_A_ID_UUID)
 
     static class Dto {
 

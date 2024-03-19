@@ -18,7 +18,7 @@ public class AccountApi {
 
         UUID ownerId;
 
-        BigDecimal balance;
+        BigDecimal availableBalance;
 
     }
 

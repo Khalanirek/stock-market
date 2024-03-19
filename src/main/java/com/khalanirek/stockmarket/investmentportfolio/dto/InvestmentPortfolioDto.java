@@ -6,10 +6,23 @@ import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.UtilityClass;
 
+import java.time.ZonedDateTime;
 import java.util.Set;
 
 @UtilityClass
 public class InvestmentPortfolioDto {
+
+    @Value
+    @Builder
+    public static class BlockShares {
+
+        InvestmentPortfolioId investmentPortfolioId;
+
+        Share share;
+
+        ZonedDateTime expirationTime;
+
+    }
 
     @Value
     @Builder
@@ -21,15 +34,15 @@ public class InvestmentPortfolioDto {
 
         Set<Share> shares;
 
-        @Value
-        @Builder
-        public static class Share {
+    }
 
-            CompanyId companyId;
+    @Value
+    @Builder
+    public static class Share {
 
-            long quantity;
+        CompanyId companyId;
 
-        }
+        long quantity;
 
     }
 

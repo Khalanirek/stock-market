@@ -2,6 +2,7 @@ package com.khalanirek.stockmarket.company.domain;
 
 import com.khalanirek.stockmarket.common.ChildEntity;
 import com.khalanirek.stockmarket.company.dto.CompanyDto;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +21,7 @@ import lombok.experimental.SuperBuilder;
 class CompanyShare extends ChildEntity {
 
     @NotNull
+    @Embedded
     private Owner owner;
 
     private long quantity;
