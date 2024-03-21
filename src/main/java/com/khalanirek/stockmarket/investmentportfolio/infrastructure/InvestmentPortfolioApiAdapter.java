@@ -22,7 +22,8 @@ class InvestmentPortfolioApiAdapter {
         static InvestmentPortfolioApi.InvestmentPortfolioDetails.Share toShare(InvestmentPortfolioDto.Share dto) {
             return InvestmentPortfolioApi.InvestmentPortfolioDetails.Share.builder()
                     .companyId(dto.getCompanyId().getId())
-                    .quantity(dto.getQuantity())
+                    .availableQuantity(dto.getAvailableQuantity())
+                    .blockedQuantity(dto.getBlockedQuantity())
                     .build();
         }
 

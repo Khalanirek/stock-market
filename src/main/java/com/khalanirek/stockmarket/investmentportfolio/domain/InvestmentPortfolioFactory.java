@@ -15,7 +15,6 @@ class InvestmentPortfolioFactory {
                 .id(UUIDContext.randomUUID())
                 .ownerId(investorId.getId())
                 .shares(new HashSet<>())
-                .shareBlockades(new HashSet<>())
                 .build();
     }
 
@@ -23,6 +22,7 @@ class InvestmentPortfolioFactory {
         return Share.builder()
                 .id(UUIDContext.randomUUID())
                 .companyId(companyId.getId())
+                .shareBlockades(new HashSet<>())
                 .build();
     }
 

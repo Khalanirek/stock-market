@@ -20,8 +20,6 @@ import java.util.UUID;
 @Table(name = "share_blockade")
 class ShareBlockade extends ChildEntity {
 
-    private UUID companyId;
-
     private long quantity;
 
     private ZonedDateTime expirationTime;

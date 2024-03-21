@@ -26,7 +26,9 @@ public class InvestmentPortfolioApi {
 
             UUID companyId;
 
-            long quantity;
+            long availableQuantity;
+
+            long blockedQuantity;
 
         }
 

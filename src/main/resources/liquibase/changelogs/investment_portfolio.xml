@@ -24,8 +24,7 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="investment_portfolio_id" type="uuid"/>
-            <column name="company_id" type="uuid"/>
+            <column name="investment_portfolio_share_id" type="uuid"/>
             <column name="quantity" type="number"/>
             <column name="expiration_time" type="timestamp with zone"/>
         </createTable>

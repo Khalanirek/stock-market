@@ -31,20 +31,12 @@ class InvestmentPortfolio extends BaseEntity<InvestmentPortfolioId> {
     @JoinColumn(name = "investment_portfolio_id")
     private Set<Share> shares;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "investment_portfolio_id")
-    private Set<ShareBlockade> shareBlockades;
-
     void blockShares(CompanyId companyId, long quantity, ZonedDateTime expirationTime) {
         Share share = findShare(companyId).orElseThrow();
-        if (share.getQuantity() < quantity) {
+        if (share.getAvailableQuantity() < quantity) {
             throw new InvestmentPortfolioExceptions.NotEnoughShares(id(), companyId);
         }
-        shareBlockades.add(ShareBlockade.builder()
-                        .companyId(companyId.getId())
-                        .quantity(quantity)
-                        .expirationTime(expirationTime)
-                .build());
+        share.blockShares(quantity, expirationTime);
     }
 
     void addShare(CompanyId companyId, long quantity) {

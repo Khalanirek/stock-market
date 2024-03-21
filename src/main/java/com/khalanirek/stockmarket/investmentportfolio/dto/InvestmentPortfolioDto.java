@@ -42,7 +42,9 @@ public class InvestmentPortfolioDto {
 
         CompanyId companyId;
 
-        long quantity;
+        long availableQuantity;
+
+        long blockedQuantity;
 
     }
 
