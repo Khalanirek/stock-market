@@ -53,6 +53,33 @@ class OrderFixture {
 
     static class Api {
 
+        static OrderApi.SubmitOrderRequest submitOrderA() {
+            return OrderApi.SubmitOrderRequest.builder()
+                    .investorId(INVESTOR_A_ID_UUID)
+                    .orderType(ORDER_A_TYPE)
+                    .share(OrderApi.Share.builder()
+                            .companyId(COMPANY_A_ID_UUID)
+                            .quantity(100)
+                            .price(10 as BigDecimal)
+                            .build())
+                    .expirationTime(ORDER_A_EXPIRATION_TIME)
+                    .build()
+        }
+
+        static OrderApi.OrderDetails newOrderDetailsA() {
+            return OrderApi.OrderDetails.builder()
+                    .id(ORDER_A_ID_UUID)
+                    .investorId(INVESTOR_A_ID_UUID)
+                    .orderType(ORDER_A_TYPE)
+                    .share(OrderApi.Share.builder()
+                            .companyId(COMPANY_A_ID_UUID)
+                            .quantity(100)
+                            .price(10 as BigDecimal)
+                            .build())
+                    .expirationTime(ORDER_A_EXPIRATION_TIME)
+                    .build()
+        }
+
     }
 
 }

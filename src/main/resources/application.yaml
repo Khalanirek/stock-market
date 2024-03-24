@@ -5,9 +5,15 @@ spring:
     hibernate:
       ddl-auto: update
       dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
   datasource:
-    url: jdbc:postgresql://localhost:5432/stock-market
+    url: jdbc:postgresql://localhost:5432/stock-market?serverTimezone=UTC
     username: admin
     password: admin
   liquibase:
     change-log: classpath:/liquibase/master.xml
+  jackson:
+    time-zone: UTC

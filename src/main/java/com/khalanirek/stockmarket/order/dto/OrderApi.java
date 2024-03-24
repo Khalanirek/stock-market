@@ -30,6 +30,8 @@ public class OrderApi {
     @Builder
     public static class OrderDetails {
 
+        UUID id;
+
         UUID investorId;
 
         OrderType orderType;

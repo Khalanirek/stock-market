@@ -4,25 +4,23 @@ import com.google.common.annotations.VisibleForTesting;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.experimental.UtilityClass;
-import org.springframework.util.CollectionUtils;
 
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
-
-import static java.util.Collections.emptyList;
+import java.util.*;
 
 @UtilityClass
 public class TimeContext {
+
+    static {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));   // Better than PostConstruct - invoked before parsing in tests
+    }
 
     @VisibleForTesting
     @Setter(AccessLevel.PUBLIC)
     private static ZonedDateTime fixtureTime;
 
     public static ZonedDateTime zonedNow() {
-        return Objects.requireNonNullElseGet(fixtureTime, ZonedDateTime::now);
+        return Objects.requireNonNullElseGet(fixtureTime, () -> ZonedDateTime.now().withFixedOffsetZone());
     }
 
     public static void clear() {

@@ -30,7 +30,7 @@ class DatabaseInitializer implements ApplicationContextInitializer<ConfigurableA
 
     private static setupApplication(ConfigurableApplicationContext applicationContext) {
         addInlinedPropertiesToEnvironment(applicationContext,
-                "spring.datasource.url=$postgresContainer.jdbcUrl",
+                "spring.datasource.url=$postgresContainer.jdbcUrl?serverTimezone=UTC",
                 "spring.datasource.username=$postgresContainer.username",
                 "spring.datasource.password=$postgresContainer.password")
     }

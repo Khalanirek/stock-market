@@ -28,4 +28,27 @@ class OrderApiAdapter {
         }
 
     }
+
+    static class DtoToApi {
+
+        static OrderApi.OrderDetails toOrderDetails(OrderDto.Order dto) {
+            return OrderApi.OrderDetails.builder()
+                    .id(dto.getId().getId())
+                    .investorId(dto.getInvestorId().getId())
+                    .orderType(dto.getOrderType())
+                    .share(toShare(dto.getShare()))
+                    .expirationTime(dto.getExpirationTime())
+                    .build();
+        }
+
+        private static OrderApi.Share toShare(OrderDto.Share dto) {
+            return OrderApi.Share.builder()
+                    .companyId(dto.getCompanyId().getId())
+                    .quantity(dto.getQuantity())
+                    .price(dto.getPrice())
+                    .build();
+        }
+
+    }
+
 }
