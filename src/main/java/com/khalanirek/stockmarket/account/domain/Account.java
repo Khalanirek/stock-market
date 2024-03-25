@@ -4,6 +4,7 @@ import com.khalanirek.stockmarket.account.dto.AccountDto;
 import com.khalanirek.stockmarket.account.dto.AccountExceptions;
 import com.khalanirek.stockmarket.account.dto.AccountId;
 import com.khalanirek.stockmarket.common.BaseEntity;
+import com.khalanirek.stockmarket.common.UUIDContext;
 import com.khalanirek.stockmarket.investor.dto.InvestorId;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -40,6 +41,7 @@ class Account extends BaseEntity<AccountId> {
             throw new AccountExceptions.NotEnoughFundsException(id());
         }
         fundsBlockades.add(FundsBlockade.builder()
+                        .id(UUIDContext.randomUUID())
                         .amount(amount)
                         .expirationTime(expireAt)
                 .build());
