@@ -50,7 +50,7 @@ class CompanyFixture extends BaseFixture {
 
     static class Api {
 
-        static CompanyApi.RegisterCompanyRequest registerCompanyA() {
+        static CompanyApi.RegisterCompanyRequest registerCompanyARequest() {
             return CompanyApi.RegisterCompanyRequest.builder()
                     .name(COMPANY_A_NAME)
                     .symbol(COMPANY_A_SYMBOL)

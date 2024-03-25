@@ -10,7 +10,7 @@ import spock.lang.Specification
 
 import static com.khalanirek.stockmarket.common.BaseFixture.toJson
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.COMPANY_API_BASE_URL
-import static com.khalanirek.stockmarket.company.dto.CompanyFixture.Api.registerCompanyA
+import static com.khalanirek.stockmarket.company.dto.CompanyFixture.Api.registerCompanyARequest
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.COMPANY_A_ID
 import static org.springframework.http.MediaType.APPLICATION_JSON
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -32,7 +32,7 @@ class CompanyCommandControllerITSpec extends Specification {
         when:
             def result = mockMvc.perform(post(COMPANY_API_BASE_URL)
                     .contentType(APPLICATION_JSON)
-                    .content(toJson(registerCompanyA())))
+                    .content(toJson(registerCompanyARequest())))
         then:
             result.andExpect(status().isOk())
 

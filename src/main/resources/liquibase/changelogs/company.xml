@@ -9,6 +9,7 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="version" type="number"/>
             <column name="name" type="varchar(255)"/>
             <column name="symbol" type="varchar(3)"/>
             <column name="share_capital" type="number"/>
