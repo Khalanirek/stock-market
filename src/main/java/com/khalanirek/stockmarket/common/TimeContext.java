@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.UtilityClass;
 
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 @UtilityClass
@@ -20,7 +21,7 @@ public class TimeContext {
     private static ZonedDateTime fixtureTime;
 
     public static ZonedDateTime zonedNow() {
-        return Objects.requireNonNullElseGet(fixtureTime, () -> ZonedDateTime.now().withFixedOffsetZone());
+        return Objects.requireNonNullElseGet(fixtureTime, () -> ZonedDateTime.now().withFixedOffsetZone().truncatedTo(ChronoUnit.MICROS));
     }
 
     public static void clear() {

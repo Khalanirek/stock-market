@@ -4,15 +4,16 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
 
     <changeSet id="order-init" author="PiotrTurlinski">
-        <createTable tableName="order">
+        <createTable tableName="share_order">
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="version" type="number"/>
             <column name="investor_id" type="uuid"/>
             <column name="order_type" type="varchar(32)"/>
-            <column name="company_id" type="uuid"/>
-            <column name="quantity" type="number"/>
-            <column name="price" type="number"/>
+            <column name="share_company_id" type="uuid"/>
+            <column name="share_quantity" type="number"/>
+            <column name="share_price" type="number"/>
             <column name="expiration_time" type="timestamp with zone"/>
         </createTable>
     </changeSet>

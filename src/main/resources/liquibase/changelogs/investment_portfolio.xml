@@ -9,6 +9,7 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="version" type="number"/>
             <column name="owner_id" type="uuid"/>
         </createTable>
 

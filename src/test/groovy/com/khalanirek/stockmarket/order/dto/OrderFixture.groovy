@@ -53,12 +53,12 @@ class OrderFixture {
 
     static class Api {
 
-        static OrderApi.SubmitOrderRequest submitOrderA() {
+        static OrderApi.SubmitOrderRequest submitOrderARequest(UUID investorId = INVESTOR_A_ID_UUID, UUID companyId = COMPANY_A_ID_UUID) {
             return OrderApi.SubmitOrderRequest.builder()
-                    .investorId(INVESTOR_A_ID_UUID)
+                    .investorId(investorId)
                     .orderType(ORDER_A_TYPE)
                     .share(OrderApi.Share.builder()
-                            .companyId(COMPANY_A_ID_UUID)
+                            .companyId(companyId)
                             .quantity(100)
                             .price(10 as BigDecimal)
                             .build())

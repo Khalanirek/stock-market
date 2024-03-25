@@ -11,7 +11,7 @@ import spock.lang.Specification
 
 import static com.khalanirek.stockmarket.common.BaseFixture.toJson
 import static com.khalanirek.stockmarket.investor.dto.InvestorFixture.Dto.investorA
-import static com.khalanirek.stockmarket.order.dto.OrderFixture.Api.submitOrderA
+import static com.khalanirek.stockmarket.order.dto.OrderFixture.Api.submitOrderARequest
 import static com.khalanirek.stockmarket.order.dto.OrderFixture.ORDER_API_BASE_URL
 import static com.khalanirek.stockmarket.order.dto.OrderFixture.ORDER_A_ID
 import static com.khalanirek.stockmarket.order.dto.OrderFixture.getINVESTOR_A_ID
@@ -39,7 +39,7 @@ class OrderCommandControllerITSpec extends Specification {
         when:
             def result = mockMvc.perform(post(ORDER_API_BASE_URL)
                     .contentType(APPLICATION_JSON)
-                    .content(toJson(submitOrderA())))
+                    .content(toJson(submitOrderARequest())))
         then:
             result.andExpect(status().isOk())
     }

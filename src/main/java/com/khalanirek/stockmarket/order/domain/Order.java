@@ -20,7 +20,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @Entity
-@Table(name = "order")
+@Table(name = "share_order")
 class Order extends BaseEntity<OrderId> {
 
     private UUID investorId;

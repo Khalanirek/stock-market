@@ -16,6 +16,7 @@ class OrderApiAdapter {
                     .investorId(InvestorId.of(request.getInvestorId()))
                     .orderType(request.getOrderType())
                     .share(toShare(request.getShare()))
+                    .expirationTime(request.getExpirationTime())
                     .build();
         }
 

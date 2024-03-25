@@ -7,5 +7,6 @@
     <include file="/changelogs/company.xml" relativeToChangelogFile="true"/>
     <include file="/changelogs/investment_portfolio.xml" relativeToChangelogFile="true"/>
     <include file="/changelogs/investor.xml" relativeToChangelogFile="true"/>
+    <include file="/changelogs/order.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
