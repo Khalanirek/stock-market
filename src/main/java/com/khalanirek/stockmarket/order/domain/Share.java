@@ -3,14 +3,12 @@ package com.khalanirek.stockmarket.order.domain;
 import com.khalanirek.stockmarket.company.dto.CompanyId;
 import com.khalanirek.stockmarket.order.dto.OrderDto;
 import jakarta.persistence.Embeddable;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @Builder

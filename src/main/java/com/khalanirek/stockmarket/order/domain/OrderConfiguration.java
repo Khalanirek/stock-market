@@ -4,6 +4,7 @@ import com.khalanirek.stockmarket.account.domain.AccountCommandFacade;
 import com.khalanirek.stockmarket.investmentportfolio.domain.InvestmentPortfolioCommandFacade;
 import com.khalanirek.stockmarket.investor.domain.InvestorQueryFacade;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class OrderConfiguration {
 
+    private final ApplicationEventPublisher applicationEventPublisher;
     private final OrderRepository orderRepository;
     private final InvestorQueryFacade investorQueryFacade;
     private final AccountCommandFacade accountCommandFacade;
@@ -18,7 +20,8 @@ class OrderConfiguration {
 
     @Bean
     OrderCommandFacade orderCommandFacade() {
-        return new OrderCommandFacade(orderRepository, investorQueryFacade, accountCommandFacade, investmentPortfolioCommandFacade);
+        return new OrderCommandFacade(applicationEventPublisher, orderRepository, investorQueryFacade,
+                accountCommandFacade, investmentPortfolioCommandFacade);
     }
 
     @Bean

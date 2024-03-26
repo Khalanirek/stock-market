@@ -1,6 +1,7 @@
 package com.khalanirek.stockmarket.order.domain
 
 import com.khalanirek.stockmarket.common.UUIDContext
+import com.khalanirek.stockmarket.order.dto.OrderEventsDto
 
 import static com.khalanirek.stockmarket.order.dto.OrderFixture.Dto.newOrderA
 import static com.khalanirek.stockmarket.order.dto.OrderFixture.ORDER_A_ID_UUID
@@ -15,6 +16,7 @@ class OrderFacadeSpec extends OrderBaseSpec {
             def orderId = orderCommandFacade.submitOrder(submitOrderA())
         then:
             orderQueryFacade.findOrderById(orderId) == newOrderA()
+            applicationEventPublisher.lastEvent instanceof OrderEventsDto.OrderSubmittedEvent
     }
 
 }
