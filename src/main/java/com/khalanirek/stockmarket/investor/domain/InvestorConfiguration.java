@@ -3,6 +3,7 @@ package com.khalanirek.stockmarket.investor.domain;
 import com.khalanirek.stockmarket.account.domain.AccountCommandFacade;
 import com.khalanirek.stockmarket.investmentportfolio.domain.InvestmentPortfolioCommandFacade;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,13 +11,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class InvestorConfiguration {
 
+    private final ApplicationEventPublisher applicationEventPublisher;
     private final InvestorRepository investorRepository;
     private final AccountCommandFacade accountCommandFacade;
     private final InvestmentPortfolioCommandFacade investmentPortfolioCommandFacade;
 
     @Bean
     InvestorCommandFacade investorCommandFacade() {
-        return new InvestorCommandFacade(investorRepository, accountCommandFacade, investmentPortfolioCommandFacade);
+        return new InvestorCommandFacade(applicationEventPublisher, investorRepository, accountCommandFacade, investmentPortfolioCommandFacade);
     }
 
     @Bean

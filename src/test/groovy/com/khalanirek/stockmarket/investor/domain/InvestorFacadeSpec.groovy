@@ -1,6 +1,7 @@
 package com.khalanirek.stockmarket.investor.domain
 
 import com.khalanirek.stockmarket.common.UUIDContext
+import com.khalanirek.stockmarket.investor.dto.InvestorEventsDto
 
 import static com.khalanirek.stockmarket.investor.dto.InvestorFixture.Dto.investorA
 import static com.khalanirek.stockmarket.investor.dto.InvestorFixture.INVESTOR_A_ACCOUNT_ID_UUID
@@ -22,6 +23,7 @@ class InvestorFacadeSpec extends InvestorBaseSpec {
             def id = investorCommandFacade.registerInvestor(registerInvestorA())
         then:
             investorQueryFacade.findInvestorById(id) == investorA()
+            applicationEventPublisher.lastEvent instanceof InvestorEventsDto.InvestorRegisteredEvent
     }
 
 }
