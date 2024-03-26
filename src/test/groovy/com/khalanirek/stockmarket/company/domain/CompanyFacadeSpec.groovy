@@ -1,6 +1,7 @@
 package com.khalanirek.stockmarket.company.domain
 
 import com.khalanirek.stockmarket.common.UUIDContext
+import com.khalanirek.stockmarket.company.dto.CompanyEventsDto
 
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.COMPANY_A_ID_UUID
 import static com.khalanirek.stockmarket.company.dto.CompanyFixture.Dto.companyA
@@ -15,6 +16,7 @@ class CompanyFacadeSpec extends CompanyBaseSpec {
             def id = companyCommandFacade.registerCompany(registerCompanyA())
         then:
             companyQueryFacade.findCompanyById(id) == companyA()
+            applicationEventPublisher.lastEvent instanceof CompanyEventsDto.CompanyRegisteredEvent
     }
 
 }

@@ -1,6 +1,7 @@
 package com.khalanirek.stockmarket.company.domain;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,12 +9,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class CompanyConfiguration {
 
+    private final ApplicationEventPublisher applicationEventPublisher;
     private final CompanyRepository companyRepository;
-
 
     @Bean
     CompanyCommandFacade companyCommandFacade() {
-        return new CompanyCommandFacade(companyRepository);
+        return new CompanyCommandFacade(applicationEventPublisher, companyRepository);
     }
 
     @Bean

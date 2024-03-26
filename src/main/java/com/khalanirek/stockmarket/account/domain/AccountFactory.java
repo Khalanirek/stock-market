@@ -12,7 +12,7 @@ import java.util.HashSet;
 @UtilityClass
 class AccountFactory {
 
-    public static class Domain {
+    static class Domain {
 
         static Account createAccount(InvestorId ownerId) {
             return Account.builder()
@@ -25,7 +25,7 @@ class AccountFactory {
 
     }
 
-    public static class EventsDto {
+    static class EventsDto {
 
         static AccountEventsDto.AccountCreated toAccountCreated(Account account) {
             return AccountEventsDto.AccountCreated.builder()

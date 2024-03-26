@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Getter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
