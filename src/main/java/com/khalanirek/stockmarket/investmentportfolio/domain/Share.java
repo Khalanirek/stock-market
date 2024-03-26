@@ -1,9 +1,9 @@
 package com.khalanirek.stockmarket.investmentportfolio.domain;
 
 import com.khalanirek.stockmarket.common.ChildEntity;
+import com.khalanirek.stockmarket.common.UUIDContext;
 import com.khalanirek.stockmarket.company.dto.CompanyId;
 import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioDto;
-import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioExceptions;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -47,6 +47,7 @@ class Share extends ChildEntity {
 
     void blockShares(long quantityToBlock, ZonedDateTime expirationTime) {
         shareBlockades.add(ShareBlockade.builder()
+                .id(UUIDContext.randomUUID())
                 .quantity(quantityToBlock)
                 .expirationTime(expirationTime)
                 .build());
