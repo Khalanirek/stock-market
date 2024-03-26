@@ -1,5 +1,6 @@
 package com.khalanirek.stockmarket.account.domain
 
+import com.khalanirek.stockmarket.account.dto.AccountEventsDto
 import com.khalanirek.stockmarket.account.dto.AccountExceptions
 import com.khalanirek.stockmarket.common.TimeContext
 import com.khalanirek.stockmarket.common.UUIDContext
@@ -17,9 +18,10 @@ class AccountFacadeSpec extends AccountBaseSpec {
             def accountId= accountCommandFacade.createAccount(ACCOUNT_A_OWNER_ID)
         then:
             accountQueryFacade.findAccountById(accountId) == accountA()
+            applicationEventPublisher.lastEvent instanceof AccountEventsDto.AccountCreated
     }
 
-    def "should deposit money"() {
+    def "should deposit funds"() {
         given:
             UUIDContext.setFixtureUUID(ACCOUNT_A_ID_UUID)
             def accountId= accountCommandFacade.createAccount(ACCOUNT_A_OWNER_ID)
@@ -29,10 +31,10 @@ class AccountFacadeSpec extends AccountBaseSpec {
         then:
             def account = accountQueryFacade.findAccountById(accountId)
             account.getAvailableBalance() == deposit
-
+            applicationEventPublisher.lastEvent instanceof AccountEventsDto.FundsDeposited
     }
 
-    def "should withdraw money"() {
+    def "should withdraw funds"() {
         given:
             UUIDContext.setFixtureUUID(ACCOUNT_A_ID_UUID)
             def accountId= accountCommandFacade.createAccount(ACCOUNT_A_OWNER_ID)
@@ -43,6 +45,7 @@ class AccountFacadeSpec extends AccountBaseSpec {
         then:
             def account = accountQueryFacade.findAccountById(accountId)
             account.getAvailableBalance() == 0
+            applicationEventPublisher.lastEvent instanceof AccountEventsDto.FundsWithdrew
     }
 
     def "should throw NotEnoughFundsException when try to withdraw more than available on account"() {
@@ -67,6 +70,7 @@ class AccountFacadeSpec extends AccountBaseSpec {
         then:
             def account = accountQueryFacade.findAccountById(accountId)
             account.getAvailableBalance() == 0
+            applicationEventPublisher.lastEvent instanceof AccountEventsDto.FundsBlocked
     }
 
 }

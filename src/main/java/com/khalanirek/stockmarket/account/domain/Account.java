@@ -1,6 +1,7 @@
 package com.khalanirek.stockmarket.account.domain;
 
 import com.khalanirek.stockmarket.account.dto.AccountDto;
+import com.khalanirek.stockmarket.account.dto.AccountEventsDto;
 import com.khalanirek.stockmarket.account.dto.AccountExceptions;
 import com.khalanirek.stockmarket.account.dto.AccountId;
 import com.khalanirek.stockmarket.common.BaseEntity;
@@ -10,6 +11,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -20,6 +22,7 @@ import java.util.UUID;
 
 import static java.math.BigDecimal.ZERO;
 
+@Getter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
@@ -36,7 +39,7 @@ class Account extends BaseEntity<AccountId> {
     @JoinColumn(name = "account_id")
     private Set<FundsBlockade> fundsBlockades;
 
-    void blockFunds(BigDecimal amount, ZonedDateTime expireAt) {
+    AccountEventsDto.FundsBlocked blockFunds(BigDecimal amount, ZonedDateTime expireAt) {
         if (getAvailableBalance().subtract(amount).compareTo(ZERO) < 0) {
             throw new AccountExceptions.NotEnoughFundsException(id());
         }
@@ -45,17 +48,20 @@ class Account extends BaseEntity<AccountId> {
                         .amount(amount)
                         .expirationTime(expireAt)
                 .build());
+        return AccountFactory.EventsDto.toFundsBlocked(this, amount, expireAt);
     }
 
-    void depositFunds(BigDecimal amount) {
+    AccountEventsDto.FundsDeposited depositFunds(BigDecimal amount) {
         balance = balance.add(amount);
+        return AccountFactory.EventsDto.toFundsDeposited(this, amount);
     }
 
-    void withdrawFunds(BigDecimal amount) {
+    AccountEventsDto.FundsWithdrew withdrawFunds(BigDecimal amount) {
         if (getAvailableBalance().subtract(amount).compareTo(ZERO) < 0) {
             throw new AccountExceptions.NotEnoughFundsException(id());
         }
         balance = balance.subtract(amount);
+        return AccountFactory.EventsDto.toFundsWithdrew(this, amount);
     }
 
     @Transient
