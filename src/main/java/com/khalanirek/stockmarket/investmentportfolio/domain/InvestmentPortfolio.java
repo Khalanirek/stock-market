@@ -3,6 +3,7 @@ package com.khalanirek.stockmarket.investmentportfolio.domain;
 import com.khalanirek.stockmarket.common.BaseEntity;
 import com.khalanirek.stockmarket.company.dto.CompanyId;
 import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioDto;
+import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioEventsDto;
 import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioExceptions;
 import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioId;
 import com.khalanirek.stockmarket.investor.dto.InvestorId;
@@ -31,24 +32,26 @@ class InvestmentPortfolio extends BaseEntity<InvestmentPortfolioId> {
     @JoinColumn(name = "investment_portfolio_id")
     private Set<Share> shares;
 
-    void blockShares(CompanyId companyId, long quantity, ZonedDateTime expirationTime) {
+    InvestmentPortfolioEventsDto.ShareBlocked blockShares(CompanyId companyId, long quantity, ZonedDateTime expirationTime) {
         Share share = findShare(companyId).orElseThrow();
         if (share.getAvailableQuantity() < quantity) {
             throw new InvestmentPortfolioExceptions.NotEnoughShares(id(), companyId);
         }
         share.blockShares(quantity, expirationTime);
+        return InvestmentPortfolioFactory.EventsDto.toShareBlocked(this, companyId, quantity, expirationTime);
     }
 
-    void addShare(CompanyId companyId, long quantity) {
+    InvestmentPortfolioEventsDto.ShareAdded addShare(CompanyId companyId, long quantity) {
         Optional<Share> existingShare = findShare(companyId);
         Share share;
         if (existingShare.isEmpty()) {
-            share = InvestmentPortfolioFactory.createShare(companyId);
+            share = InvestmentPortfolioFactory.Domain.createShare(companyId);
             shares.add(share);
         } else {
             share = existingShare.get();
         }
         share.increaseQuantity(quantity);
+        return InvestmentPortfolioFactory.EventsDto.toShareAdded(this, companyId, quantity);
     }
 
     private Optional<Share> findShare(CompanyId companyId) {

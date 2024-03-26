@@ -1,6 +1,7 @@
 package com.khalanirek.stockmarket.investmentportfolio.domain;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,11 +9,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class InvestmentPortfolioConfiguration {
 
+    private final ApplicationEventPublisher applicationEventPublisher;
     private final InvestmentPortfolioRepository investmentPortfolioRepository;
 
     @Bean
     InvestmentPortfolioCommandFacade investmentPortfolioCommandFacade() {
-        return new InvestmentPortfolioCommandFacade(investmentPortfolioRepository);
+        return new InvestmentPortfolioCommandFacade(applicationEventPublisher, investmentPortfolioRepository);
     }
 
     @Bean

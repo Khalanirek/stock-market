@@ -2,6 +2,7 @@ package com.khalanirek.stockmarket.investmentportfolio.domain
 
 import com.khalanirek.stockmarket.common.TimeContext
 import com.khalanirek.stockmarket.common.UUIDContext
+import com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioEventsDto
 
 import static com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioFixture.COMPANY_A_ID
 import static com.khalanirek.stockmarket.investmentportfolio.dto.InvestmentPortfolioFixture.INVESTMENT_PORTFOLIO_A_ID_UUID
@@ -17,6 +18,7 @@ class InvestmentPortfolioFacadeSpec extends InvestmentPortfolioBaseSpec {
             def portfolioId = investmentPortfolioCommandFacade.createInvestmentPortfolio(INVESTMENT_PORTFOLIO_A_OWNER_ID)
         then:
             investmentPortfolioQueryFacade.findInvestmentPortfolioById(portfolioId) == newInvestmentPortfolioA()
+            applicationEventPublisher.lastEvent instanceof InvestmentPortfolioEventsDto.InvestmentPortfolioCreated
     }
 
     def "should add share to investment portfolio"() {
@@ -28,6 +30,7 @@ class InvestmentPortfolioFacadeSpec extends InvestmentPortfolioBaseSpec {
         then:
             def portfolio = investmentPortfolioQueryFacade.findInvestmentPortfolioById(portfolioId)
             portfolio.shares[0].availableQuantity == 100
+            applicationEventPublisher.lastEvent instanceof InvestmentPortfolioEventsDto.ShareAdded
     }
 
     def "should block shares"() {
@@ -40,6 +43,7 @@ class InvestmentPortfolioFacadeSpec extends InvestmentPortfolioBaseSpec {
         then:
             def portfolio = investmentPortfolioQueryFacade.findInvestmentPortfolioById(portfolioId)
             portfolio.shares[0].availableQuantity == 50
+        applicationEventPublisher.lastEvent instanceof InvestmentPortfolioEventsDto.ShareBlocked
     }
 
 }
