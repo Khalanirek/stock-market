@@ -41,7 +41,7 @@ class OrderCommandControllerITSpec extends Specification {
                     .contentType(APPLICATION_JSON)
                     .content(toJson(submitOrderARequest())))
         then:
-            result.andExpect(status().isOk())
+            result.andExpect(status().isCreated())
     }
 
 }

@@ -34,7 +34,7 @@ class CompanyCommandControllerITSpec extends Specification {
                     .contentType(APPLICATION_JSON)
                     .content(toJson(registerCompanyARequest())))
         then:
-            result.andExpect(status().isOk())
+            result.andExpect(status().isCreated())
 
     }
 

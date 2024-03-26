@@ -34,7 +34,7 @@ class InvestorCommandControllerITSpec extends Specification {
                 .contentType(APPLICATION_JSON)
                 .content(toJson(registerInvestorARequest())))
         then:
-            result.andExpect(status().isOk())
+            result.andExpect(status().isCreated())
 
     }
 
