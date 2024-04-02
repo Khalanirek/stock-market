@@ -10,10 +10,12 @@ spring:
         jdbc:
           time_zone: UTC
   datasource:
-    url: jdbc:postgresql://localhost:5432/stock-market?serverTimezone=UTC
+    url: jdbc:postgresql://postgres:5432/stock-market?serverTimezone=UTC
     username: admin
     password: admin
   liquibase:
     change-log: classpath:/liquibase/master.xml
   jackson:
     time-zone: UTC
+  kafka:
+    bootstrap-servers: broker:9092

@@ -20,7 +20,7 @@ public class AccountEventsDto {
 
     @Value
     @Builder
-    public static class AccountCreated implements AccountEvent{
+    public static class AccountCreated implements AccountEvent {
 
         @NonNull
         UUID accountId;
@@ -32,7 +32,7 @@ public class AccountEventsDto {
 
     @Value
     @Builder
-    public static class FundsBlocked implements AccountEvent{
+    public static class FundsBlocked implements AccountEvent {
 
         @NonNull
         UUID accountId;
@@ -47,7 +47,7 @@ public class AccountEventsDto {
 
     @Value
     @Builder
-    public static class FundsDeposited implements AccountEvent{
+    public static class FundsDeposited implements AccountEvent {
 
         @NonNull
         UUID accountId;
@@ -59,7 +59,7 @@ public class AccountEventsDto {
 
     @Value
     @Builder
-    public static class FundsWithdrew implements AccountEvent{
+    public static class FundsWithdrew implements AccountEvent {
 
         @NonNull
         UUID accountId;
