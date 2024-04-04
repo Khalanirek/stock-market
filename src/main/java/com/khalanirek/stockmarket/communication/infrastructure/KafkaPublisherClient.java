@@ -8,14 +8,24 @@ import com.khalanirek.stockmarket.order.dto.OrderEventsDto;
 
 public interface KafkaPublisherClient {
 
-    void publishEvent(AccountEventsDto.AccountEvent event);
+    void publishEvent(AccountEventsDto.AccountCreated event);
 
-    void publishEvent(CompanyEventsDto.CompanyEvent event);
+    void publishEvent(AccountEventsDto.FundsBlocked event);
 
-    void publishEvent(InvestmentPortfolioEventsDto.InvestmentPortfolioEvent event);
+    void publishEvent(AccountEventsDto.FundsDeposited event);
 
-    void publishEvent(InvestorEventsDto.InvestorEvent event);
+    void publishEvent(AccountEventsDto.FundsWithdrew event);
 
-    void publishEvent(OrderEventsDto.OrderEvent event);
+    void publishEvent(CompanyEventsDto.CompanyRegisteredEvent event);
+
+    void publishEvent(InvestmentPortfolioEventsDto.InvestmentPortfolioCreated event);
+
+    void publishEvent(InvestmentPortfolioEventsDto.ShareAdded event);
+
+    void publishEvent(InvestmentPortfolioEventsDto.ShareBlocked event);
+
+    void publishEvent(InvestorEventsDto.InvestorRegisteredEvent event);
+
+    void publishEvent(OrderEventsDto.OrderSubmittedEvent event);
 
 }

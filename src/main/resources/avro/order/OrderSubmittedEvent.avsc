@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "OrderSubmittedEvent",
+  "namespace": "com.khalanirek.stockmarket.avro.order",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "investorId",
+      "type": "string"
+    },
+    {
+      "name": "orderType",
+      "type": "string"
+    },
+    {
+      "name": "share",
+      "type": "Share"
+    },
+    {
+      "name": "expirationTime",
+      "type": "string"
+    }
+  ]
+}

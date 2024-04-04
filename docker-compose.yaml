@@ -55,6 +55,18 @@ services:
     networks:
       - local-network
 
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.2.7
+    ports:
+      - "8091:8081"
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "PLAINTEXT://broker:9092"
+      SCHEMA_REGISTRY_HOST_NAME: "schema-registry"
+    networks:
+      - local-network
+    depends_on:
+      - broker
+
   stock-market:
     container_name: stock-market
     image: stock-market

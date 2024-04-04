@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "CompanyRegisteredEvent",
+  "namespace": "com.khalanirek.stockmarket.avro.company",
+  "fields": [
+    {
+      "name": "companyId",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "symbol",
+      "type": "string"
+    },
+    {
+      "name": "shareCapital",
+      "type": "string"
+    },
+    {
+      "name": "sharesQuantity",
+      "type": "long"
+    }
+  ]
+}

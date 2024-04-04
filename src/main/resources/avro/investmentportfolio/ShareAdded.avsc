@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "ShareAddedEvent",
+  "namespace": "com.khalanirek.stockmarket.avro.investmentportfolio",
+  "fields": [
+    {
+      "name": "investmentPortfolioId",
+      "type": "string"
+    },
+    {
+      "name": "companyId",
+      "type": "string"
+    },
+    {
+      "name": "quantity",
+      "type": "long"
+    }
+  ]
+}

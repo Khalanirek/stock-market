@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "ShareBlockedEvent",
+  "namespace": "com.khalanirek.stockmarket.avro.investmentportfolio",
+  "fields": [
+    {
+      "name": "investmentPortfolioId",
+      "type": "string"
+    },
+    {
+      "name": "companyId",
+      "type": "string"
+    },
+    {
+      "name": "quantity",
+      "type": "long"
+    },
+    {
+      "name": "expirationTime",
+      "type": "string"
+    }
+  ]
+}

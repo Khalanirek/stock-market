@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "InvestorRegisteredEvent",
+  "namespace": "com.khalanirek.stockmarket.avro.investor",
+  "fields": [
+    {
+      "name": "investorId",
+      "type": "string"
+    },
+    {
+      "name": "accountId",
+      "type": "string"
+    },
+    {
+      "name": "investmentPortfolioId",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "surname",
+      "type": "string"
+    }
+  ]
+}

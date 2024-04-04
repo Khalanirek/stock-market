@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "InvestmentPortfolioCreatedEvent",
+  "namespace": "com.khalanirek.stockmarket.avro.investmentportfolio",
+  "fields": [
+    {
+      "name": "investmentPortfolioId",
+      "type": "string"
+    }
+  ]
+}

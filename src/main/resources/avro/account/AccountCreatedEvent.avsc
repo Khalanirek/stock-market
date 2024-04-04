@@ -1,0 +1,14 @@
+{
+    "type": "record",
+    "name": "AccountCreatedEvent",
+    "namespace": "com.khalanirek.stockmarket.avro.account",
+    "fields": [
+    {
+        "name": "accountId",
+        "type": "string"
+    },
+    {
+        "name": "ownerId",
+        "type": "string"
+    }]
+}

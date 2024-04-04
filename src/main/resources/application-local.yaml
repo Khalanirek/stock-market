@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stock-market?serverTimezone=UTC
+    username: admin
+    password: admin
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      properties:
+        schema.registry.url: http://localhost:8091
+    consumer:
+      properties:
+        schema.registry.url: http://localhost:8091

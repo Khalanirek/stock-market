@@ -1,0 +1,14 @@
+{
+    "type": "record",
+    "name": "FundsDepositedEvent",
+    "namespace": "com.khalanirek.stockmarket.avro.account",
+    "fields": [
+    {
+        "name": "accountId",
+        "type": "string"
+    },
+    {
+        "name": "amount",
+        "type": "string"
+    }]
+}

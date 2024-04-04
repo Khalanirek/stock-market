@@ -19,3 +19,10 @@ spring:
     time-zone: UTC
   kafka:
     bootstrap-servers: broker:9092
+    producer:
+      properties:
+        schema.registry.url: http://schema-registry:8081
+    consumer:
+      properties:
+        schema.registry.url: http://schema-registry:8081
+        specific.avro.reader: true

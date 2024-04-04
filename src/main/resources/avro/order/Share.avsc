@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "Share",
+  "namespace": "com.khalanirek.stockmarket.avro.order",
+  "fields": [
+    {
+      "name": "companyId",
+      "type": "string"
+    },
+    {
+      "name": "quantity",
+      "type": "long"
+    },
+    {
+      "name": "price",
+      "type": "string"
+    }
+  ]
+}
